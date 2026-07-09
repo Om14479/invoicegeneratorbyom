@@ -1,0 +1,174 @@
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --text: #1f2937;
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --danger: #ef4444;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.invoice-container {
+  background: var(--surface);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 800px;
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--primary);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+}
+
+/* Form Styling */
+.invoice-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  min-width: 200px;
+}
+
+.form-group.small {
+  flex: 1;
+  min-width: 80px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #4b5563;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--primary);
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add {
+  background-color: var(--primary);
+  color: white;
+  height: 42px;
+}
+
+.btn-add:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: var(--danger);
+  padding: 5px 10px;
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+}
+
+.btn-print {
+  background-color: #10b981;
+  color: white;
+  font-size: 1rem;
+}
+
+.btn-print:hover {
+  background-color: #059669;
+}
+
+/* Table Styling */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.invoice-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+/* Summary */
+.invoice-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--border);
+  padding-top: 20px;
+}
+
+.total-box {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+#grand-total {
+  color: var(--primary);
+  margin-left: 10px;
+}
+
+/* Print Styles: Hides UI controls when printing */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+  .invoice-container {
+    box-shadow: none;
+    padding: 0;
+  }
+  .invoice-form,
+  .btn-print,
+  .btn-delete,
+  th:last-child,
+  td:last-child {
+    display: none !important;
+  }
+}
